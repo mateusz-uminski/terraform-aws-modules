@@ -12,11 +12,9 @@ variable "email_address" {
 variable "budget_limit" {
   type        = string
   description = ""
-
 }
 
 variable "budget_duration" {
   type        = string
   description = ""
-
 }
