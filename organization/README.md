@@ -15,9 +15,7 @@ source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//organiz
 ```sh
 source = git::https://github.com/mateusz-uminski/terraform-aws-modules//organization?ref=branch"
 ```
-3. Import specific version
+3. Import a specific version
 ```sh
 source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//organization?ref=v0.0.1"
 ```
-
-
