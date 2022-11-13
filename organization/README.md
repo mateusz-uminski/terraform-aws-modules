@@ -4,7 +4,7 @@ Terraform module that bootstraps an aws organization. It creates organizational
 units with given prefixes and attaches a SCP policy to the root.
 The SCP policy limits access in the organization only to given regions.
 <br>
-[](../docs/organization-module.png)
+![](../docs/organization-module.png)
 
 # How to use?
 1. Import from main branch
