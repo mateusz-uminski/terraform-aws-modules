@@ -11,7 +11,7 @@ source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//budget"
 ```
 2. Import from a specific branch
 ```sh
-source = git::https://github.com/mateusz-uminski/terraform-aws-modules//budget?ref=branch"
+source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//budget?ref=branch"
 ```
 3. Import a specific version
 ```sh
