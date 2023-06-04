@@ -14,6 +14,7 @@ resource "aws_organizations_organizational_unit" "groups" {
 data "aws_iam_policy_document" "limit_to_regions" {
   statement {
     not_actions = [
+      "aws-portal:*",
       "cloudfront:*",
       "iam:*",
       "route53:*",
