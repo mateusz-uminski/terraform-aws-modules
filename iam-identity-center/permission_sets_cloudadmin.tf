@@ -1,0 +1,32 @@
+locals {
+  cloudadmin_assignments = setproduct(local.account_ids, [aws_identitystore_group.cloudadmins.group_id])
+}
+
+resource "aws_ssoadmin_permission_set" "cloudadmin" {
+  for_each = local.aws_accounts
+
+  name             = "${local.org}-cloudadmin-${each.value}"
+  instance_arn     = local.identity_center_arn
+  session_duration = local.session_duration
+}
+
+resource "aws_ssoadmin_managed_policy_attachment" "cloudadmin" {
+  for_each = local.aws_accounts
+
+  instance_arn       = local.identity_center_arn
+  managed_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+  permission_set_arn = aws_ssoadmin_permission_set.cloudadmin[each.key].arn
+}
+
+resource "aws_ssoadmin_account_assignment" "cloudadmin" {
+  for_each = { for i, v in local.cloudadmin_assignments : "${i}" => { account_id = v[0], group_id = v[1] } }
+
+  instance_arn       = local.identity_center_arn
+  permission_set_arn = aws_ssoadmin_permission_set.cloudadmin[each.value.account_id].arn
+
+  principal_id   = each.value.group_id
+  principal_type = "GROUP"
+
+  target_id   = each.value.account_id
+  target_type = "AWS_ACCOUNT"
+}
