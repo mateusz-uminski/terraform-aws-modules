@@ -34,19 +34,6 @@ List of modules used for sso configuration:
 - [iam-permissions-boundary-policies](https://github.com/mateusz-uminski/terraform-aws-modules/tree/main/iam-permissions-boundary-policies)
 - [iam-identity-center-users](https://github.com/mateusz-uminski/terraform-aws-modules/tree/main/iam-identity-center-users)
 
-# How to use?
-1. Import from main branch
-```sh
-source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//iam-identity-center"
-```
-2. Import from a specific branch
-```sh
-source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//iam-identity-center?ref=branch"
-```
-3. Import a specific version
-```sh
-source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//iam-identity-center?ref=v0.0.1"
-```
 
 # Example of usage
 ```terraform
