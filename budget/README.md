@@ -18,7 +18,7 @@ source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//budget?
 source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//budget?ref=v0.0.1"
 ```
 
-# Example usage
+# Example of usage
 ```terraform
 module "monthly_budget" {
   source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//budget?ref=main"

@@ -48,7 +48,7 @@ source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//iam-ide
 source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//iam-identity-center?ref=v0.0.1"
 ```
 
-# Example usage
+# Example of usage
 ```terraform
 module "iam_identity_center" {
   source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//iam-identity-center?ref=main"

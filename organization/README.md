@@ -21,7 +21,7 @@ source = git::https://github.com/mateusz-uminski/terraform-aws-modules//organiza
 source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//organization?ref=v0.0.1"
 ```
 
-# Example usage
+# Example of usage
 ```terraform
 module "organization" {
   source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//organization?ref=main"
