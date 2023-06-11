@@ -18,6 +18,7 @@ This module requires the IAM Identity Center to be enabled. You can accomplish t
 - `Every time they sign in (always-on)`
 - `Require them to register an MFA device at sign in`
 3. Enable `Attributes for access control`
+4. Add the following attribute: `ac:project = ${path:enterprise.division}`
 
 List of modules used for sso configuration:
 - [iam-identity-center](https://github.com/mateusz-uminski/terraform-aws-modules/tree/main/iam-identity-center)
