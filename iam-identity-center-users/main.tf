@@ -18,7 +18,7 @@ resource "aws_identitystore_user" "main" {
 
 locals {
   assigments = flatten([
-    for k, v in local.users : [
+    for k, v in var.users : [
       for group in v.groups : {
         user_name  = k
         group_name = group
