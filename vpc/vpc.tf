@@ -9,7 +9,7 @@ resource "aws_vpc" "main" {
 resource "aws_s3_bucket" "flow_logs" {
   count = var.vpc_flow_logs == true ? 1 : 0
 
-  bucket = "${local.org}-${var.vpc_name}-vpc-flow-logs"
+  bucket = "${local.org}-${var.vpc_name}-vpc-${var.vpc_tier}-flow-logs"
 }
 
 
@@ -24,5 +24,9 @@ resource "aws_flow_log" "main" {
   destination_options {
     file_format        = "parquet"
     per_hour_partition = true
+  }
+
+  tags = {
+    Name = "${local.org}-${var.vpc_name}-vpc-${var.vpc_tier}"
   }
 }

@@ -14,13 +14,14 @@ The module also allows to configure vpc flow logs.
 
 # Example of usage
 ```terraform
-module "iam_identity_center" {
+module "vpc" {
   source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=main"
 
   # required variables
-  vpc_name      = "main"
-  vpc_tier      = "shared"
-  vpc_cidr      = "10.18.0.0/16"
+  org_abbreviated_name = "mcd"
+  vpc_name             = "main"
+  vpc_tier             = "shared"
+  vpc_cidr             = "10.18.0.0/16"
 
   public_subnets  = ["10.18.0.0/20", "10.18.16.0/20", "10.18.32.0/20"]
   private_subnets = ["10.18.64.0/20", "10.18.80.0/20", "10.18.96.0/20"]

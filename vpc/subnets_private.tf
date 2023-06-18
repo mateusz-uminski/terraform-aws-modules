@@ -5,6 +5,8 @@ resource "aws_eip" "natgw" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-natgw${count.index + 1}-eip-${var.vpc_tier}"
+
+    "net:tier" = "private"
   }
 }
 
@@ -16,6 +18,8 @@ resource "aws_nat_gateway" "private" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-natgw${count.index + 1}-${var.vpc_tier}"
+
+    "net:tier" = "private"
   }
 }
 
@@ -28,6 +32,8 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-private-sn${count.index + 1}-${var.vpc_tier}"
+
+    "net:tier" = "private"
   }
 }
 
@@ -38,6 +44,8 @@ resource "aws_route_table" "private" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-private-rt${count.index + 1}-${var.vpc_tier}"
+
+    "net:tier" = "private"
   }
 }
 
@@ -93,5 +101,7 @@ resource "aws_network_acl" "private" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-private-nacl-${var.vpc_tier}"
+
+    "net:tier" = "private"
   }
 }
