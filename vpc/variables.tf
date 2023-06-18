@@ -33,10 +33,9 @@ variable "storage_subnets" {
   description = "The list of storage subnets in the VPC."
 }
 
-variable "vpc_flow_logs" {
-  type        = bool
-  description = "A boolean value indicating whether VPC flow logs should be enabled."
-  default     = true
+variable "vpc_flow_logs_s3_bucket_arn" {
+  type    = string
+  default = "The Amazon Resource Name (ARN) of the S3 bucket where VPC flow logs will be stored."
 }
 
 variable "private_subnets_ingress_nacl" {

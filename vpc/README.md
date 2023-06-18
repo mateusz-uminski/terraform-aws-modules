@@ -5,7 +5,7 @@ Terraform module that creates a vpc with three different types of subnets:
 - **private subnets**: each subnets has its own NAT gateway. Outbound traffic to the public internet and only inbound traffic from the VPC is allowed (this can be extended using `private_subnets_ingress_nacl`).
 - **storage subnets**: inbound traffic is limited to only come from the private subnets, and outbound traffic is allowed only to the VPC.
 
-The module also allows to configure vpc flow logs.
+The module also allows configuring vpc flow logs by specifying a target S3 bucket.
 
 <br>
 
