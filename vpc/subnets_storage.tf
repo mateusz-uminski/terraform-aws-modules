@@ -7,6 +7,8 @@ resource "aws_subnet" "storage" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-storage-sn${count.index + 1}-${var.vpc_tier}"
+
+    "net:tier" = "storage"
   }
 }
 
@@ -15,6 +17,8 @@ resource "aws_route_table" "storage" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-storage-rt-${var.vpc_tier}"
+
+    "net:tier" = "storage"
   }
 }
 
@@ -60,5 +64,7 @@ resource "aws_network_acl" "storage" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-storage-nacl-${var.vpc_tier}"
+
+    "net:tier" = "storage"
   }
 }

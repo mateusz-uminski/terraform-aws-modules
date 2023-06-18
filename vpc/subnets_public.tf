@@ -16,6 +16,8 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-public-sn${count.index + 1}-${var.vpc_tier}"
+
+    "net:tier" = "public"
   }
 }
 
@@ -29,6 +31,8 @@ resource "aws_route_table" "public" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-public-rt-${var.vpc_tier}"
+
+    "net:tier" = "public"
   }
 }
 
@@ -63,5 +67,7 @@ resource "aws_network_acl" "public" {
 
   tags = {
     Name = "${local.org}-${var.vpc_name}-public-nacl-${var.vpc_tier}"
+
+    "net:tier" = "public"
   }
 }
