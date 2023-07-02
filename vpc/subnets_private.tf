@@ -66,7 +66,7 @@ resource "aws_route" "natgw" {
 
 resource "aws_network_acl" "private" {
   vpc_id     = aws_vpc.main.id
-  subnet_ids = [for s in aws_subnet.public : s.id]
+  subnet_ids = [for s in aws_subnet.private : s.id]
 
   ingress {
     protocol   = "all"
