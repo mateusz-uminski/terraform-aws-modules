@@ -2,7 +2,7 @@
 
 Terraform module that creates a monthly budget in the AWS cloud and sets up
 an email notification. The email notification is sent when the actual
-costs have exceed 100% of the budget.
+costs have exceed 80% of the budget.
 
 
 # Example of usage
