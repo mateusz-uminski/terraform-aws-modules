@@ -43,3 +43,9 @@ variable "private_subnets_ingress_nacl" {
   description = "A map specifying ingress network access control list (NACL) rules for the private subnets."
   default     = {}
 }
+
+variable "transit_gateway_id" {
+  type        = string
+  description = "The ID of a transit gateway to be attached to the VPC."
+  default     = ""
+}
