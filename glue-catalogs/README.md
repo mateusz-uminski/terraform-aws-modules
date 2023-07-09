@@ -25,7 +25,7 @@ module "aws_service_logs" {
 }
 ```
 
-# Example queries
+# Example athena queries
 ```sql
 -- cloudtrail
 select * from mcd_cloudtrail_glue_table where account_id = '111111111111' and region = 'us-east-1' and "date" = '2023/07/03' limit 10;
