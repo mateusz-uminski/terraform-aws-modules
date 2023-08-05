@@ -1,0 +1,19 @@
+variable "org_abbreviated_name" {
+  type        = string
+  description = "An abbreviated name of the organization, that is an owner of the budget."
+}
+
+variable "name" {
+  type        = string
+  description = "The name of the transit gateway."
+}
+
+variable "asn" {
+  type        = string
+  description = "Private Autonomous System Number (ASN) for the Amazon side of BGP session."
+}
+
+variable "route_table_names" {
+  type        = list(string)
+  description = "The list of names for the transit gateway route tables."
+}
