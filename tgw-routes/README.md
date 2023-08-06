@@ -7,7 +7,7 @@ propagating routes to specified route tables, defining static routes and blackho
 
 # Example of usage
 ```terraform
-module "ram" {
+module "tgw_routes" {
   source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//tgw-routes?ref=main"
 
   # required variables
