@@ -44,6 +44,12 @@ variable "private_subnets_ingress_nacl" {
   default     = {}
 }
 
+variable "domain_name" {
+  type        = string
+  description = "The suffix domain name to use by default when resolving non FQDNs."
+  default     = ""
+}
+
 variable "transit_gateway_id" {
   type        = string
   description = "The ID of a transit gateway to be attached to the VPC."
