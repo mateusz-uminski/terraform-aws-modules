@@ -1,4 +1,4 @@
-# vpc
+# ec2
 
 Terraform module that creates a single EC2 instance.
 
