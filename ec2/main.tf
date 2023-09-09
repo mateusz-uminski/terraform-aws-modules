@@ -46,13 +46,19 @@ resource "aws_instance" "main" {
     data.aws_security_groups.additional.ids
   )
 
-  root_block_device {
-    volume_size = var.root_ebs_size
+  dynamic "root_block_device" {
+    for_each = var.root_ebs_size != 0 ? [1] : []
 
-    tags = {
-      Name = "${local.org}-${var.project}-${var.instance_name}-root-ebs-${var.environment}"
+    content {
+      volume_size = var.root_ebs_size
+
+      tags = {
+        Name = "${local.org}-${var.project}-${var.instance_name}-root-ebs-${var.environment}"
+      }
     }
   }
+
+  user_data = var.user_data
 
   tags = {
     Name = "${local.org}-${var.project}-${var.instance_name}-ec2-${var.environment}"
