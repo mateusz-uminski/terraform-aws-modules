@@ -34,8 +34,9 @@ variable "storage_subnets" {
 }
 
 variable "vpc_flow_logs_s3_bucket_arn" {
-  type    = string
-  default = "The Amazon Resource Name (ARN) of the S3 bucket where VPC flow logs will be stored."
+  type        = string
+  description = "The Amazon Resource Name (ARN) of the S3 bucket where VPC flow logs will be stored."
+  default     = ""
 }
 
 variable "private_subnets_ingress_nacl" {

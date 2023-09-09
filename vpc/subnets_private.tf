@@ -1,5 +1,9 @@
+locals {
+  create_nat_gw = length(var.private_subnets) > 0 ? true : false
+}
+
 resource "aws_eip" "natgw" {
-  count = length(var.public_subnets)
+  count = local.create_nat_gw ? length(var.public_subnets) : 0
 
   domain = "vpc"
 
@@ -11,7 +15,7 @@ resource "aws_eip" "natgw" {
 }
 
 resource "aws_nat_gateway" "private" {
-  count = length(var.public_subnets)
+  count = local.create_nat_gw ? length(var.public_subnets) : 0
 
   allocation_id = aws_eip.natgw[count.index].id
   subnet_id     = aws_subnet.public[count.index].id
