@@ -16,12 +16,23 @@ module "ec2" {
   instance_type    = "t2.micro"
   ami_name_pattern = "CentOS-Stream-ec2-9-*"
   key_pair         = "mcd-main-key-pair"
+  root_ebs_size    = 10
 
   vpc_name    = "mcd-main-vpc-nonprod"
   subnet_name = "mcd-main-public-sn1-nonprod"
 
   # optional variables
-  assign_public_ip = true
+  assign_public_ip           = true
+  instance_profile_name      = ""
+  enable_detailed_monitoring = false
+
+  additional_ebs = {
+    "ebs1" = {
+      size        = 20
+      device_name = "/dev/sdb"
+      type        = "gp2"
+    },
+  }
 
   additional_security_groups = []
   allowed_ingress_cidrs      = []
