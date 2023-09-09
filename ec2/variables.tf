@@ -43,10 +43,34 @@ variable "subnet_name" {
   description = "The name of the subnet in which the EC2 instance will be launched."
 }
 
+variable "root_ebs_size" {
+  type = number
+}
+
 variable "assign_public_ip" {
   type        = bool
   description = "Indicates whether to assign a public IP address to the EC2 instance."
   default     = false
+}
+
+variable "instance_profile_name" {
+  type        = string
+  description = ""
+  default     = ""
+}
+
+variable "enable_detailed_monitoring" {
+  type    = bool
+  default = false
+}
+
+variable "additional_ebs" {
+  type = map(object({
+    size        = number
+    device_name = string
+    type        = string
+  }))
+  default = {}
 }
 
 variable "additional_security_groups" {

@@ -37,12 +37,43 @@ resource "aws_instance" "main" {
   instance_type = var.instance_type
   key_name      = var.key_pair
 
-  security_groups = concat(
+  associate_public_ip_address = var.assign_public_ip
+  iam_instance_profile        = var.instance_profile_name
+  monitoring                  = var.enable_detailed_monitoring
+
+  vpc_security_group_ids = concat(
     [aws_security_group.main.id],
     data.aws_security_groups.additional.ids
   )
 
+  root_block_device {
+    volume_size = var.root_ebs_size
+
+    tags = {
+      Name = "${local.org}-${var.project}-${var.instance_name}-root-ebs-${var.environment}"
+    }
+  }
+
   tags = {
     Name = "${local.org}-${var.project}-${var.instance_name}-ec2-${var.environment}"
   }
+}
+
+resource "aws_ebs_volume" "additional" {
+  for_each = var.additional_ebs
+
+  availability_zone = data.aws_subnet.main.availability_zone
+  size              = each.value.size
+
+  tags = {
+    Name = "${local.org}-${var.project}-${var.instance_name}-${each.key}-${var.environment}"
+  }
+}
+
+resource "aws_volume_attachment" "additional" {
+  for_each = var.additional_ebs
+
+  instance_id = aws_instance.main.id
+  volume_id   = aws_ebs_volume.additional[each.key].id
+  device_name = each.value.device_name
 }
