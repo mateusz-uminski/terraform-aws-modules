@@ -43,11 +43,6 @@ variable "subnet_name" {
   description = "The name of the subnet in which the EC2 instance will be launched."
 }
 
-variable "root_ebs_size" {
-  type        = number
-  description = "The size of the root block device in gigabytes."
-}
-
 variable "assign_public_ip" {
   type        = bool
   description = "Indicates whether to assign a public IP address to the EC2 instance."
@@ -66,6 +61,12 @@ variable "enable_detailed_monitoring" {
   default     = false
 }
 
+variable "root_ebs_size" {
+  type        = number
+  description = "The size of the root block device in gigabytes."
+  default     = 0
+}
+
 variable "additional_ebs" {
   type = map(object({
     size        = number
@@ -74,6 +75,12 @@ variable "additional_ebs" {
   }))
   description = "Additional EBS volumes to attach to the instance, specified as a map with size, device name, and type for each volume."
   default     = {}
+}
+
+variable "user_data" {
+  type        = string
+  description = "Custom script to be executed during the launch of the EC2 instance."
+  default     = ""
 }
 
 variable "additional_security_groups" {

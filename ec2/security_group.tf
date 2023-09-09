@@ -7,6 +7,11 @@ data "aws_vpc" "main" {
 
 data "aws_security_groups" "allowed_ingress" {
   filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.main.id]
+  }
+
+  filter {
     name   = "group-name"
     values = var.allowed_ingress_sgs
   }

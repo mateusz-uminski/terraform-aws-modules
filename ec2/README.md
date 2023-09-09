@@ -16,7 +16,6 @@ module "ec2" {
   instance_type    = "t2.micro"
   ami_name_pattern = "CentOS-Stream-ec2-9-*"
   key_pair         = "mcd-main-key-pair"
-  root_ebs_size    = 10
 
   vpc_name    = "mcd-main-vpc-nonprod"
   subnet_name = "mcd-main-public-sn1-nonprod"
@@ -26,6 +25,8 @@ module "ec2" {
   instance_profile_name      = ""
   enable_detailed_monitoring = false
 
+  root_ebs_size = 10
+
   additional_ebs = {
     "ebs1" = {
       size        = 20
@@ -33,6 +34,11 @@ module "ec2" {
       type        = "gp2"
     },
   }
+
+  user_data = <<-EOF
+    #! /bin/bash
+    touch /helloworld.txt
+  EOF
 
   additional_security_groups = []
   allowed_ingress_cidrs      = []
