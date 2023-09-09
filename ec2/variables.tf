@@ -44,7 +44,8 @@ variable "subnet_name" {
 }
 
 variable "root_ebs_size" {
-  type = number
+  type        = number
+  description = "The size of the root block device in gigabytes."
 }
 
 variable "assign_public_ip" {
@@ -55,13 +56,14 @@ variable "assign_public_ip" {
 
 variable "instance_profile_name" {
   type        = string
-  description = ""
+  description = "The name of the instance profile tto attach to the instance."
   default     = ""
 }
 
 variable "enable_detailed_monitoring" {
-  type    = bool
-  default = false
+  type        = bool
+  description = "Whether to enable detailed monitoring for the EC2 instance (true/false)."
+  default     = false
 }
 
 variable "additional_ebs" {
@@ -70,7 +72,8 @@ variable "additional_ebs" {
     device_name = string
     type        = string
   }))
-  default = {}
+  description = "Additional EBS volumes to attach to the instance, specified as a map with size, device name, and type for each volume."
+  default     = {}
 }
 
 variable "additional_security_groups" {
