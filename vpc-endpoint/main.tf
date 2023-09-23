@@ -25,7 +25,7 @@ data "aws_vpc" "main" {
 data "aws_subnets" "main" {
   filter {
     name   = "tag:Name"
-    values = var.subnets
+    values = var.subnet_names
   }
 }
 
