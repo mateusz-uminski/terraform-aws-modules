@@ -120,7 +120,6 @@ resource "aws_db_instance" "standby" {
   multi_az            = var.is_mutli_az
   publicly_accessible = var.is_public
 
-
   performance_insights_enabled = var.enable_performance_insights
   monitoring_role_arn          = var.enable_enhanced_monitoring ? aws_iam_role.enhanced_monitoring.arn : ""
   monitoring_interval          = var.enable_enhanced_monitoring ? 1 : 0
