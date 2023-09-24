@@ -19,8 +19,8 @@ module "asg" {
   ami_name_pattern = "CentOS-Stream-ec2-9-*"
   key_pair         = "mcd-main-key-pair"
 
-  vpc_name    = "mcd-main-vpc-nonprod"
-  subnet_name = "mcd-main-public-sn1-nonprod"
+  vpc_name     = "mcd-main-vpc-nonprod"
+  subnet_names = ["mcd-main-public-sn1-nonprod"]
 
   # optional variables
   placement_group            = "partition"
