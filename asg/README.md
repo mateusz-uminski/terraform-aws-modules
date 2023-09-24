@@ -47,7 +47,7 @@ module "asg" {
   EOF
 
   additional_security_groups = []
-  allowed_ingress_cidrs      = ["${chomp(data.http.my_ip.response_body)}/32"]
+  allowed_ingress_cidrs      = []
   allowed_ingress_sgs        = []
 
   exposed_port = 80
