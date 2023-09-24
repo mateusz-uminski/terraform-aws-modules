@@ -1,0 +1,56 @@
+# asg
+
+Terraform module that creates an autoscaling group of ec2 instances.
+
+# Example of usage
+```terraform
+module "asg" {
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//asg?ref=main"
+
+  # required variables
+  org_abbreviated_name = "mcd"
+  project              = "infra"
+  environment          = "dev"
+
+  asg_name        = "centos"
+  asg_capacity    = 3
+
+  instance_type    = "t2.micro"
+  ami_name_pattern = "CentOS-Stream-ec2-9-*"
+  key_pair         = "mcd-main-key-pair"
+
+  vpc_name    = "mcd-main-vpc-nonprod"
+  subnet_name = "mcd-main-public-sn1-nonprod"
+
+  # optional variables
+  placement_group            = "partition"
+  assign_public_ip           = false
+  instance_profile_name      = ""
+  enable_detailed_monitoring = false
+
+  root_ebs = {
+    device_name = "/dev/sda1"
+    size        = 20
+  }
+
+  additional_ebs = {
+    "ebs1" = {
+      size        = 20
+      device_name = "/dev/sdb"
+      type        = "gp2"
+    },
+  }
+
+  user_data = <<-EOF
+    #! /bin/bash
+    touch /helloworld.txt
+  EOF
+
+  additional_security_groups = []
+  allowed_ingress_cidrs      = ["${chomp(data.http.my_ip.response_body)}/32"]
+  allowed_ingress_sgs        = []
+
+  exposed_port = 80
+  protocol     = "HTTP"
+}
+```
