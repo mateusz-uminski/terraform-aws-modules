@@ -59,7 +59,7 @@ resource "aws_network_acl" "storage" {
 resource "aws_network_acl_rule" "storage_ingress_allow_private_subnets" {
   for_each = local.storage_nacl_rules
 
-  network_acl_id = aws_network_acl.private.id
+  network_acl_id = aws_network_acl.storage.id
   egress         = false
   rule_number    = each.key
   protocol       = "all"
@@ -70,7 +70,7 @@ resource "aws_network_acl_rule" "storage_ingress_allow_private_subnets" {
 }
 
 resource "aws_network_acl_rule" "storage_egress_allow_vpc" {
-  network_acl_id = aws_network_acl.private.id
+  network_acl_id = aws_network_acl.storage.id
   egress         = true
   rule_number    = 1000
   protocol       = "all"

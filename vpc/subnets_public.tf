@@ -40,7 +40,8 @@ resource "aws_route_table" "public" {
 resource "aws_route" "public" {
   route_table_id         = aws_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_internet_gateway.main.id
+  gateway_id             = aws_internet_gateway.main.id
+
 }
 
 resource "aws_route_table_association" "public" {
@@ -65,7 +66,7 @@ resource "aws_network_acl" "public" {
 }
 
 resource "aws_network_acl_rule" "public_ingress_allow_all" {
-  network_acl_id = aws_network_acl.private.id
+  network_acl_id = aws_network_acl.public.id
   egress         = false
   rule_number    = 1000
   protocol       = "all"
@@ -76,7 +77,7 @@ resource "aws_network_acl_rule" "public_ingress_allow_all" {
 }
 
 resource "aws_network_acl_rule" "public_egress_allow_all" {
-  network_acl_id = aws_network_acl.private.id
+  network_acl_id = aws_network_acl.public.id
   egress         = true
   rule_number    = 1000
   protocol       = "all"
