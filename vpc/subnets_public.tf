@@ -18,7 +18,7 @@ resource "aws_subnet" "public" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-sn${count.index + 1}-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "public"
+      "${local.tag_names["subnet_tier"]}" = "public"
     },
     var.tags
   )
@@ -31,7 +31,7 @@ resource "aws_route_table" "public" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-rt-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "public"
+      "${local.tag_names["subnet_tier"]}" = "public"
     },
     var.tags
   )
@@ -58,7 +58,7 @@ resource "aws_network_acl" "public" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-nacl-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "public"
+      "${local.tag_names["subnet_tier"]}" = "public"
     },
     var.tags
   )

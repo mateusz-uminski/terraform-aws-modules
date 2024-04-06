@@ -1,5 +1,5 @@
 resource "aws_eip" "natgw" {
-  count = var.create_nat_gw ? length(var.public_subnets) : 0
+  count = var.create_nat_gateway ? length(var.public_subnets) : 0
 
   domain = "vpc"
 
@@ -7,14 +7,14 @@ resource "aws_eip" "natgw" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-natgw${count.index + 1}-eip-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "private"
+      "${local.tag_names["subnet_tier"]}" = "private"
     },
     var.tags
   )
 }
 
 resource "aws_nat_gateway" "private" {
-  count = var.create_nat_gw ? length(var.public_subnets) : 0
+  count = var.create_nat_gateway ? length(var.public_subnets) : 0
 
   allocation_id = aws_eip.natgw[count.index].id
   subnet_id     = aws_subnet.public[count.index].id
@@ -23,7 +23,7 @@ resource "aws_nat_gateway" "private" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-natgw${count.index + 1}-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "private"
+      "${local.tag_names["subnet_tier"]}" = "private"
     },
     var.tags
   )
@@ -40,7 +40,7 @@ resource "aws_subnet" "private" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-sn${count.index + 1}-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "private"
+      "${local.tag_names["subnet_tier"]}" = "private"
     },
     var.tags
   )
@@ -55,7 +55,7 @@ resource "aws_route_table" "private" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-rt${count.index + 1}-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "private"
+      "${local.tag_names["subnet_tier"]}" = "private"
     },
     var.tags
   )
@@ -69,7 +69,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_route" "natgw" {
-  count = var.create_nat_gw ? length(var.public_subnets) : 0
+  count = var.create_nat_gateway ? length(var.public_subnets) : 0
 
   route_table_id         = aws_route_table.private[count.index].id
   destination_cidr_block = "0.0.0.0/0"
@@ -84,7 +84,7 @@ resource "aws_network_acl" "private" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-nacl-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "private"
+      "${local.tag_names["subnet_tier"]}" = "private"
     },
     var.tags
   )

@@ -9,7 +9,7 @@ resource "aws_subnet" "storage" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-sn${count.index + 1}-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "storage"
+      "${local.tag_names["subnet_tier"]}" = "storage"
     },
     var.tags
   )
@@ -22,7 +22,7 @@ resource "aws_route_table" "storage" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-rt-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "storage"
+      "${local.tag_names["subnet_tier"]}" = "storage"
     },
     var.tags
   )
@@ -50,7 +50,7 @@ resource "aws_network_acl" "storage" {
     {
       Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-nacl-${var.environment}"
 
-      local.tag_names["subnet_tier"] = "storage"
+      "${local.tag_names["subnet_tier"]}" = "storage"
     },
     var.tags
   )
