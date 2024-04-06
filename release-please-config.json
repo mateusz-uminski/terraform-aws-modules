@@ -1,0 +1,10 @@
+{
+  "separate-pull-requests": true,
+
+  "packages": {
+    "vpc": {
+      "release-type": "simple",
+      "component": "vpc"
+    }
+  }
+}
