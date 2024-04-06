@@ -14,21 +14,27 @@ resource "aws_subnet" "public" {
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   map_public_ip_on_launch = true
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-sn${count.index + 1}-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-sn${count.index + 1}-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "public"
-  }
+      local.tag_names["subnet_tier"] = "public"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-rt-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-rt-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "public"
-  }
+      local.tag_names["subnet_tier"] = "public"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route" "public" {
@@ -48,11 +54,14 @@ resource "aws_network_acl" "public" {
   vpc_id     = aws_vpc.main.id
   subnet_ids = [for s in aws_subnet.public : s.id]
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-nacl-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-public-nacl-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "public"
-  }
+      local.tag_names["subnet_tier"] = "public"
+    },
+    var.tags
+  )
 }
 
 resource "aws_network_acl_rule" "public_ingress_allow_all" {

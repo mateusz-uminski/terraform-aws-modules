@@ -3,11 +3,14 @@ resource "aws_eip" "natgw" {
 
   domain = "vpc"
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-natgw${count.index + 1}-eip-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-natgw${count.index + 1}-eip-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "private"
-  }
+      local.tag_names["subnet_tier"] = "private"
+    },
+    var.tags
+  )
 }
 
 resource "aws_nat_gateway" "private" {
@@ -16,11 +19,14 @@ resource "aws_nat_gateway" "private" {
   allocation_id = aws_eip.natgw[count.index].id
   subnet_id     = aws_subnet.public[count.index].id
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-natgw${count.index + 1}-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-natgw${count.index + 1}-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "private"
-  }
+      local.tag_names["subnet_tier"] = "private"
+    },
+    var.tags
+  )
 }
 
 resource "aws_subnet" "private" {
@@ -30,11 +36,14 @@ resource "aws_subnet" "private" {
   cidr_block        = var.private_subnets[count.index]
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-sn${count.index + 1}-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-sn${count.index + 1}-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "private"
-  }
+      local.tag_names["subnet_tier"] = "private"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table" "private" {
@@ -42,11 +51,14 @@ resource "aws_route_table" "private" {
 
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-rt${count.index + 1}-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-rt${count.index + 1}-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "private"
-  }
+      local.tag_names["subnet_tier"] = "private"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table_association" "private" {
@@ -68,11 +80,14 @@ resource "aws_network_acl" "private" {
   vpc_id     = aws_vpc.main.id
   subnet_ids = [for s in aws_subnet.private : s.id]
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-nacl-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-private-nacl-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "private"
-  }
+      local.tag_names["subnet_tier"] = "private"
+    },
+    var.tags
+  )
 }
 
 resource "aws_network_acl_rule" "private_ingress_allow_vpc" {

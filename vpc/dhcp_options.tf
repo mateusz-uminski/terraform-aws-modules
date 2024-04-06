@@ -4,9 +4,12 @@ resource "aws_vpc_dhcp_options" "main" {
   domain_name         = var.domain_name
   domain_name_servers = ["AmazonProvidedDNS"]
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-dhcp-opts-${var.environment}"
-  }
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-dhcp-opts-${var.environment}"
+    },
+    var.tags
+  )
 }
 
 resource "aws_vpc_dhcp_options_association" "main" {

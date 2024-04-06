@@ -23,11 +23,6 @@ variable "vpc_cidr" {
   description = "The CIDR block for the VPC."
 }
 
-variable "create_nat_gw" {
-  type        = bool
-  description = ""
-}
-
 variable "public_subnets" {
   type        = list(string)
   description = "The list of public subnets in the VPC."
@@ -41,6 +36,12 @@ variable "private_subnets" {
 variable "storage_subnets" {
   type        = list(string)
   description = "The list of storage subnets in the VPC."
+}
+
+variable "create_nat_gateway" {
+  type        = bool
+  description = ""
+  default     = false
 }
 
 variable "vpc_flow_logs_s3_bucket_arn" {
@@ -71,4 +72,10 @@ variable "transit_gateway_destination_cidr" {
   type        = string
   description = "The ID of a transit gateway to be attached to the VPC."
   default     = "0.0.0.0/0"
+}
+
+variable "tags" {
+  type        = map(string)
+  description = ""
+  default     = {}
 }

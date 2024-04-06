@@ -5,21 +5,27 @@ resource "aws_subnet" "storage" {
   cidr_block        = var.storage_subnets[count.index]
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-sn${count.index + 1}-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-sn${count.index + 1}-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "storage"
-  }
+      local.tag_names["subnet_tier"] = "storage"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table" "storage" {
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-rt-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-rt-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "storage"
-  }
+      local.tag_names["subnet_tier"] = "storage"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table_association" "storage" {
@@ -40,11 +46,14 @@ resource "aws_network_acl" "storage" {
   vpc_id     = aws_vpc.main.id
   subnet_ids = [for s in aws_subnet.storage : s.id]
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-nacl-${var.environment}"
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-storage-nacl-${var.environment}"
 
-    local.tag_names["subnet_tier"] = "storage"
-  }
+      local.tag_names["subnet_tier"] = "storage"
+    },
+    var.tags
+  )
 }
 
 resource "aws_network_acl_rule" "storage_ingress_allow_private_subnets" {

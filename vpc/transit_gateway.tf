@@ -14,9 +14,12 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "main" {
   transit_gateway_default_route_table_association = false
   transit_gateway_default_route_table_propagation = false
 
-  tags = {
-    Name = "${var.org_code}-${var.project}-${var.vpc_name}-tgw-attachment-${var.environment}"
-  }
+  tags = merge(
+    {
+      Name = "${var.org_code}-${var.project}-${var.vpc_name}-tgw-attachment-${var.environment}"
+    },
+    var.tags
+  )
 }
 
 resource "aws_route" "tgw" {
