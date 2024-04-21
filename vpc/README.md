@@ -32,12 +32,12 @@ module "vpc" {
   # optional variables
   create_nat_gateway               = false
   vpc_flow_logs_s3_bucket_arn      = "arn:aws:s3:::org_code-project_code-main-vpc-flow-logs-euw1-dev"
-  domain_name                      = "euw1.dev.internal.example.com"
+  domain_name                      = "euw1.dev.example.internal"
   transit_gateway_id               = ""
   transit_gateway_destination_cidr = "0.0.0.0/0"
 
   private_subnets_ingress_nacl = {
-    "100" = "10.18.0.0/16", # main vpc eu-west-1
+    "100" = "10.0.0.0/16",
   }
 
   tags = {}
