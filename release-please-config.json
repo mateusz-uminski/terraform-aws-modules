@@ -5,6 +5,10 @@
     "vpc": {
       "release-type": "simple",
       "component": "vpc"
+    },
+    "ec2": {
+      "release-type": "simple",
+      "component": "ec2"
     }
   }
 }
