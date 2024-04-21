@@ -2,9 +2,9 @@
 
 [![verify](https://github.com/mateusz-uminski/terraform-aws-modules/actions/workflows/verify.yaml/badge.svg)](https://github.com/mateusz-uminski/terraform-aws-modules/actions/workflows/verify.yaml)
 
-This repo contains terraform aws modules that I mainly use to provision my test environment
-in AWS cloud (see [terragrunt-aws-organization](https://github.com/mateusz-uminski/terragrunt-aws-organization)).
-Each module contains its own README file with a brief description. More can be found in commits and code comments.
 
-Feel free to explore and copy everything you want.
-Enjoy!
+This repository serves as a collection of AWS Terraform modules that I use for configuring test environments, learning and verifying unconventional ideas. These modules are mainly used in [terragrunt-aws-organization](https://github.com/mateusz-uminski/terragrunt-aws-organization).
+
+Besides the README.md further documentation can be found in commits, code comments and nested README files.
+
+Feel free to explore and copy everything you want. Enjoy!
