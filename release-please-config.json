@@ -49,6 +49,10 @@
     "resource-share": {
       "release-type": "simple",
       "component": "resource-share"
+    },
+    "cloudtrail": {
+      "release-type": "simple",
+      "component": "cloudtrail"
     }
   }
 }
