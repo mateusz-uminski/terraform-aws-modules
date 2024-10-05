@@ -7,7 +7,7 @@
   "asg": "0.1.0",
   "vpc-endpoint": "0.1.0",
   "transit-gateway": "0.1.0",
-  "athena-workgroup": "0.0.1",
+  "athena-workgroup": "0.1.0",
   "tgw-routes": "0.1.0",
   "r53-private-zone": "0.1.0",
   "resource-share": "0.0.1",
