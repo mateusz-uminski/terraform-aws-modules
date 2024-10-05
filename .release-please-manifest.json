@@ -9,7 +9,7 @@
   "transit-gateway": "0.0.1",
   "athena-workgroup": "0.0.1",
   "tgw-routes": "0.1.0",
-  "r53-private-zone": "0.0.1",
+  "r53-private-zone": "0.1.0",
   "resource-share": "0.0.1",
   "cloudtrail": "0.0.1",
   "rds-postgres": "0.0.1",
