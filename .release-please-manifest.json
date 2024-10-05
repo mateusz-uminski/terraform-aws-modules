@@ -1,7 +1,7 @@
 {
   "vpc": "0.1.0",
   "ec2": "0.0.1",
-  "budget": "0.0.1",
+  "budget": "0.1.0",
   "logs-bucket": "0.0.1",
   "organization": "0.0.1",
   "asg": "0.0.1",
