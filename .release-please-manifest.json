@@ -9,5 +9,6 @@
   "transit-gateway": "0.0.1",
   "athena-workgroup": "0.0.1",
   "tgw-routes": "0.0.1",
-  "r53-private-zone": "0.0.1"
+  "r53-private-zone": "0.0.1",
+  "resource-share": "0.0.1"
 }

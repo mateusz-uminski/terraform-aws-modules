@@ -45,6 +45,10 @@
     "r53-private-zone": {
       "release-type": "simple",
       "component": "r53-private-zone"
+    },
+    "resource-share": {
+      "release-type": "simple",
+      "component": "resource-share"
     }
   }
 }
