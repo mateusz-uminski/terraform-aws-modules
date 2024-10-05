@@ -4,7 +4,7 @@
   "budget": "0.1.0",
   "logs-bucket": "0.0.1",
   "organization": "0.1.0",
-  "asg": "0.0.1",
+  "asg": "0.1.0",
   "vpc-endpoint": "0.1.0",
   "transit-gateway": "0.0.1",
   "athena-workgroup": "0.0.1",
