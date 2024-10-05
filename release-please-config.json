@@ -13,6 +13,10 @@
     "budget": {
       "release-type": "simple",
       "component": "budget"
+    },
+    "logs-bucket": {
+      "release-type": "simple",
+      "component": "logs-bucket"
     }
   }
 }
