@@ -11,7 +11,7 @@
   "tgw-routes": "0.1.0",
   "r53-private-zone": "0.1.0",
   "resource-share": "0.0.1",
-  "cloudtrail": "0.0.1",
+  "cloudtrail": "0.1.0",
   "rds-postgres": "0.1.0",
   "efs": "0.1.0",
   "eks": "0.1.0",
