@@ -41,6 +41,10 @@
     "tgw-routes": {
       "release-type": "simple",
       "component": "tgw-routes"
+    },
+    "r53-private-zone": {
+      "release-type": "simple",
+      "component": "r53-private-zone"
     }
   }
 }
