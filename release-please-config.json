@@ -57,6 +57,10 @@
     "rds-postgres": {
       "release-type": "simple",
       "component": "rds-postgres"
+    },
+    "efs": {
+      "release-type": "simple",
+      "component": "efs"
     }
   }
 }
