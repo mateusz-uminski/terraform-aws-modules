@@ -65,6 +65,10 @@
     "eks": {
       "release-type": "simple",
       "component": "eks"
+    },
+    "glue-catalogs": {
+      "release-type": "simple",
+      "component": "glue-catalogs"
     }
   }
 }
