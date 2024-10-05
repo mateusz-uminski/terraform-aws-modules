@@ -4,5 +4,6 @@
   "budget": "0.0.1",
   "logs-bucket": "0.0.1",
   "organization": "0.0.1",
-  "asg": "0.0.1"
+  "asg": "0.0.1",
+  "vpc-endpoint": "0.0.1"
 }

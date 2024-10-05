@@ -25,6 +25,10 @@
     "asg": {
       "release-type": "simple",
       "component": "asg"
+    },
+    "vpc-endpoint": {
+      "release-type": "simple",
+      "component": "vpc-endpoint"
     }
   }
 }
