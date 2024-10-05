@@ -13,5 +13,6 @@
   "resource-share": "0.0.1",
   "cloudtrail": "0.0.1",
   "rds-postgres": "0.0.1",
-  "efs": "0.0.1"
+  "efs": "0.0.1",
+  "eks": "0.0.1"
 }
