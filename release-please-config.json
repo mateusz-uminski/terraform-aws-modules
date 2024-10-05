@@ -61,6 +61,10 @@
     "efs": {
       "release-type": "simple",
       "component": "efs"
+    },
+    "eks": {
+      "release-type": "simple",
+      "component": "eks"
     }
   }
 }
