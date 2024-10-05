@@ -29,6 +29,10 @@
     "vpc-endpoint": {
       "release-type": "simple",
       "component": "vpc-endpoint"
+    },
+    "transit-gateway": {
+      "release-type": "simple",
+      "component": "transit-gateway"
     }
   }
 }
