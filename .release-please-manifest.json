@@ -7,5 +7,6 @@
   "asg": "0.0.1",
   "vpc-endpoint": "0.0.1",
   "transit-gateway": "0.0.1",
-  "athena-workgroup": "0.0.1"
+  "athena-workgroup": "0.0.1",
+  "tgw-routes": "0.0.1"
 }
