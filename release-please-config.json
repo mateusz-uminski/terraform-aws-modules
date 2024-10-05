@@ -17,6 +17,10 @@
     "logs-bucket": {
       "release-type": "simple",
       "component": "logs-bucket"
+    },
+    "organization": {
+      "release-type": "simple",
+      "component": "organization"
     }
   }
 }
