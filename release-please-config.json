@@ -53,6 +53,10 @@
     "cloudtrail": {
       "release-type": "simple",
       "component": "cloudtrail"
+    },
+    "rds-postgres": {
+      "release-type": "simple",
+      "component": "rds-postgres"
     }
   }
 }
