@@ -14,6 +14,6 @@
   "cloudtrail": "0.0.1",
   "rds-postgres": "0.0.1",
   "efs": "0.1.0",
-  "eks": "0.0.1",
+  "eks": "0.1.0",
   "glue-catalogs": "0.1.0"
 }
