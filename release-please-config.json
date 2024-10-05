@@ -37,6 +37,10 @@
     "athena-workgroup": {
       "release-type": "simple",
       "component": "athena-workgroup"
+    },
+    "tgw-routes": {
+      "release-type": "simple",
+      "component": "tgw-routes"
     }
   }
 }
