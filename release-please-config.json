@@ -21,6 +21,10 @@
     "organization": {
       "release-type": "simple",
       "component": "organization"
+    },
+    "asg": {
+      "release-type": "simple",
+      "component": "asg"
     }
   }
 }
