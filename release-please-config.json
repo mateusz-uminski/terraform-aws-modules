@@ -9,6 +9,10 @@
     "ec2": {
       "release-type": "simple",
       "component": "ec2"
+    },
+    "budget": {
+      "release-type": "simple",
+      "component": "budget"
     }
   }
 }
