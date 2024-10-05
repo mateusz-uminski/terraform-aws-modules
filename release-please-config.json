@@ -33,6 +33,10 @@
     "transit-gateway": {
       "release-type": "simple",
       "component": "transit-gateway"
+    },
+    "athena-workgroup": {
+      "release-type": "simple",
+      "component": "athena-workgroup"
     }
   }
 }
