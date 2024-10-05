@@ -18,14 +18,3 @@ resource "aws_budgets_budget" "monthly" {
     ignore_changes = [time_period_start]
   }
 }
-
-module "monthly_budget" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//budget?ref=main"
-
-  # required variables
-  org_code      = "mcd"
-  email_address = "recipient@domain.com"
-
-  # optional variables
-  usd_limit = 10
-}
