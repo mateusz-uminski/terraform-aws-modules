@@ -48,7 +48,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_subnet" {
   ip_protocol = "-1"
   from_port   = 0
   to_port     = 0
-  cidr_ipv4   = [data.aws_subnet.main.cidr_block]
+  cidr_ipv4   = data.aws_subnet.main.cidr_block
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_from_specified_cidrs" {
