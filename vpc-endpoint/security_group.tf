@@ -23,7 +23,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_self" {
   from_port   = 0
   to_port     = 0
 
-  referenced_security_group_id = aws_security_group.main.id
+  referenced_security_group_id = aws_security_group.vpc_endpoint.id
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_vpc" {
