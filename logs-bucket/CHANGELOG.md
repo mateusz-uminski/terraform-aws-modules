@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/mateusz-uminski/terraform-aws-modules/compare/logs-bucket-v0.1.0...logs-bucket-v0.2.0) (2024-10-19)
+
+
+### Features
+
+* **logs-bucket:** parametrize service arn prefix ([#47](https://github.com/mateusz-uminski/terraform-aws-modules/issues/47)) ([365e62b](https://github.com/mateusz-uminski/terraform-aws-modules/commit/365e62b06f3ef58e7fe64374ce9d608349464c28))
+
 ## [0.1.0](https://github.com/mateusz-uminski/terraform-aws-modules/compare/logs-bucket-v0.0.1...logs-bucket-v0.1.0) (2024-10-05)
 
 
