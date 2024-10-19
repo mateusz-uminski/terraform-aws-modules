@@ -18,6 +18,12 @@ variable "account_id" {
   description = "The ID of the account where the bucket will be created."
 }
 
+variable "service_arn_prefix" {
+  type        = string
+  description = " The ARN prefix of the service that will generate logs."
+  default     = "arn:aws:log"
+}
+
 variable "allowed_account_ids" {
   type        = list(string)
   description = "The list of accounts that are allowed to access the bucket."

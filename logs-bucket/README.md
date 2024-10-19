@@ -14,6 +14,8 @@ module "vpc_flow_logs_bucket" {
   account_id   = "123456789012"
 
   # optional variables
+  service_arn_prefix = "arn:aws:log"
+
   allowed_account_ids = [
     "234567890123",
   ]

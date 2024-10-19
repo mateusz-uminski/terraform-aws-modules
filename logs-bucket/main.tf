@@ -43,7 +43,7 @@ data "aws_iam_policy_document" "allow_from_svc" {
       condition {
         test     = "ArnLike"
         variable = "aws:SourceArn"
-        values   = ["arn:aws:logs:*:${i.key}:*"]
+        values   = ["${var.service_arn_prefix}:*:${i.key}:*"]
       }
     }
   }
@@ -69,7 +69,7 @@ data "aws_iam_policy_document" "allow_from_svc" {
     condition {
       test     = "ArnLike"
       variable = "aws:SourceArn"
-      values   = [for account in local.account_ids : "arn:aws:logs:*:${account}:*"]
+      values   = [for account in local.account_ids : "${var.service_arn_prefix}:*:${account}:*"]
     }
   }
 }
