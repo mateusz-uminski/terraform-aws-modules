@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/mateusz-uminski/terraform-aws-modules/compare/vpc-endpoint-v0.1.1...vpc-endpoint-v0.1.2) (2024-10-19)
+
+
+### Bug Fixes
+
+* **vpc-endpoint:** correct sg ID in security group rule ([#45](https://github.com/mateusz-uminski/terraform-aws-modules/issues/45)) ([370b384](https://github.com/mateusz-uminski/terraform-aws-modules/commit/370b38453915ac490ff2a96f6dd8f6ab9105a0fc))
+
 ## [0.1.1](https://github.com/mateusz-uminski/terraform-aws-modules/compare/vpc-endpoint-v0.1.0...vpc-endpoint-v0.1.1) (2024-10-19)
 
 
